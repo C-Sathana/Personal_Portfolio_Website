@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sathana | AI & Full Stack Developer</title>
+
+    <meta name="description"
+          content="Sathana - Information Technology graduate, AI/ML enthusiast and Full Stack Developer.">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg: #080b14;
+            --bg-secondary: #101522;
+            --card: rgba(255, 255, 255, 0.06);
+            --card-hover: rgba(255, 255, 255, 0.10);
+            --text: #f4f7ff;
+            --muted: #aab3c5;
+            --primary: #7c5cff;
+            --secondary: #00d4ff;
+            --border: rgba(255, 255, 255, 0.10);
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        body.light {
+            --bg: #f5f7fb;
+            --bg-secondary: #ffffff;
+            --card: rgba(0, 0, 0, 0.04);
+            --card-hover: rgba(0, 0, 0, 0.07);
+            --text: #101522;
+            --muted: #5d6678;
+            --border: rgba(0, 0, 0, 0.10);
+            --shadow: 0 20px 50px rgba(0, 0, 0, 0.10);
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(124, 92, 255, 0.18),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 90% 20%,
+                    rgba(0, 212, 255, 0.12),
+                    transparent 25%
+                ),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: min(1120px, 92%);
+            margin: auto;
+        }
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: var(--secondary);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        .section-title h2 {
+            font-size: clamp(30px, 5vw, 44px);
+            margin-top: 8px;
+        }
+
+        .section-title p {
+            color: var(--muted);
+            max-width: 650px;
+            margin: 12px auto 0;
+        }
+
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            background: rgba(8, 11, 20, 0.72);
+            border-bottom: 1px solid var(--border);
+
+            transition: 0.3s ease;
+        }
+
+        body.light header {
+            background: rgba(255, 255, 255, 0.75);
+        }
+
+        nav {
+            height: 72px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+        }
+
+        /* Center navigation */
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(
+                90deg,
+                var(--primary),
+                var(--secondary)
+            );
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+    
+        /* Mobile menu button */
+
+        .menu-btn {
+            display: none;
+
+            background: none;
+            border: none;
+
+            color: var(--text);
+            font-size: 28px;
+
+            cursor: pointer;
+
+            position: absolute;
+            left: 0;
+        }
+
+        #home {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding-top: 130px;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.4fr 0.8fr;
+
+            gap: 60px;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-block;
+
+            padding: 8px 15px;
+
+            border: 1px solid var(--border);
+            border-radius: 50px;
+
+            background: var(--card);
+            color: var(--secondary);
+
+            font-size: 13px;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 1.05;
+            letter-spacing: -3px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(
+                90deg,
+                var(--primary),
+                var(--secondary)
+            );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+        }
+
+        .hero h2 {
+            color: var(--muted);
+
+            font-size: clamp(18px, 3vw, 25px);
+
+            margin: 18px 0;
+
+            font-weight: 500;
+        }
+
+        .hero-description {
+            max-width: 650px;
+
+            color: var(--muted);
+
+            font-size: 17px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+
+            margin-top: 30px;
+
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 22px;
+
+            border-radius: 10px;
+
+            font-weight: bold;
+
+            border: 1px solid var(--border);
+
+            transition: 0.3s;
+
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--secondary)
+            );
+
+            color: white;
+
+            border: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        .profile-card {
+            position: relative;
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 30px;
+
+            padding: 35px;
+
+            text-align: center;
+
+            box-shadow: var(--shadow);
+
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+        }
+
+        .profile-image {
+            width: 210px;
+            height: 210px;
+
+            margin: auto;
+
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--secondary)
+            );
+
+            font-size: 72px;
+            font-weight: 800;
+
+            color: white;
+
+            border: 7px solid rgba(255, 255, 255, 0.1);
+
+            box-shadow:
+                0 0 40px rgba(124, 92, 255, 0.25);
+        }
+
+        .profile-card h3 {
+            margin-top: 20px;
+            font-size: 25px;
+        }
+
+        .profile-card p {
+            color: var(--muted);
+        }
+
+        .socials {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            margin-top: 20px;
+
+            flex-wrap: wrap;
+        }
+
+        .socials a {
+            border: 1px solid var(--border);
+
+            background: var(--card);
+
+            padding: 8px 13px;
+
+            border-radius: 8px;
+
+            font-size: 13px;
+
+            color: var(--muted);
+
+            transition: 0.3s;
+        }
+
+        .socials a:hover {
+            color: var(--secondary);
+
+            transform: translateY(-2px);
+        }
+
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 25px;
+        }
+
+        .info-card {
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            padding: 28px;
+
+            transition: 0.3s;
+        }
+
+        .info-card:hover {
+            background: var(--card-hover);
+
+            transform: translateY(-5px);
+        }
+
+        .info-card h3 {
+            margin-bottom: 15px;
+            font-size: 21px;
+        }
+
+        .info-card p {
+            color: var(--muted);
+        }
+
+        .details {
+            margin-top: 20px;
+
+            display: grid;
+
+            gap: 12px;
+        }
+
+        .details li {
+            display: flex;
+
+            justify-content: space-between;
+
+            border-bottom: 1px solid var(--border);
+
+            padding-bottom: 10px;
+
+            gap: 20px;
+        }
+
+        .details span:first-child {
+            color: var(--muted);
+        }
+
+        .details span:last-child {
+            text-align: right;
+        }
+
+        .skills-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            padding: 25px;
+
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+
+            border-color: var(--primary);
+
+            box-shadow: var(--shadow);
+        }
+
+        .skill-card h3 {
+            color: var(--secondary);
+
+            margin-bottom: 15px;
+        }
+
+        .skill-list {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+        }
+
+        .skill-list li {
+            padding: 7px 11px;
+
+            border-radius: 7px;
+
+            background: rgba(124, 92, 255, 0.12);
+
+            color: var(--text);
+
+            font-size: 13px;
+        }
+
+
+        .timeline {
+            max-width: 850px;
+
+            margin: auto;
+
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+
+            position: absolute;
+
+            left: 18px;
+            top: 0;
+
+            width: 2px;
+            height: 100%;
+
+            background: linear-gradient(
+                var(--primary),
+                var(--secondary)
+            );
+        }
+
+        .timeline-item {
+            position: relative;
+
+            padding-left: 60px;
+
+            margin-bottom: 35px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+
+            left: 8px;
+            top: 5px;
+
+            width: 22px;
+            height: 22px;
+
+            border-radius: 50%;
+
+            background: var(--secondary);
+
+            border: 5px solid var(--bg);
+
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+        }
+
+        .timeline-card {
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 16px;
+
+            padding: 25px;
+
+            transition: 0.3s;
+        }
+
+        .timeline-card:hover {
+            transform: translateX(5px);
+        }
+
+        .timeline-card h3 {
+            font-size: 20px;
+        }
+
+        .timeline-card .date {
+            color: var(--secondary);
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin: 5px 0 12px;
+        }
+
+        .timeline-card p {
+            color: var(--muted);
+        }
+
+        .timeline-card ul {
+            margin-top: 12px;
+
+            padding-left: 20px;
+
+            list-style: disc;
+
+            color: var(--muted);
+        }
+
+
+        .projects-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .project-card {
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 20px;
+
+            padding: 27px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+
+            box-shadow: var(--shadow);
+
+            border-color: var(--primary);
+        }
+
+        .project-number {
+            font-size: 14px;
+
+            color: var(--secondary);
+
+            font-weight: bold;
+        }
+
+        .project-card h3 {
+            margin: 12px 0;
+
+            font-size: 20px;
+        }
+
+        .project-card p {
+            color: var(--muted);
+
+            font-size: 14px;
+
+            flex-grow: 1;
+        }
+
+        .project-tech {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 7px;
+
+            margin-top: 18px;
+        }
+
+        .project-tech span {
+            border: 1px solid var(--border);
+
+            padding: 5px 9px;
+
+            border-radius: 6px;
+
+            font-size: 11px;
+
+            color: var(--muted);
+        }
+
+        .achievement {
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(124, 92, 255, 0.16),
+                    rgba(0, 212, 255, 0.08)
+                );
+
+            border: 1px solid var(--border);
+
+            border-radius: 22px;
+
+            padding: 40px;
+
+            text-align: center;
+
+            max-width: 850px;
+
+            margin: auto;
+        }
+
+        .achievement-icon {
+            font-size: 50px;
+
+            margin-bottom: 15px;
+        }
+
+        .achievement h3 {
+            font-size: 25px;
+        }
+
+        .achievement p {
+            color: var(--muted);
+
+            margin-top: 10px;
+        }
+
+
+        .publication-list {
+            display: grid;
+
+            gap: 18px;
+
+            max-width: 900px;
+
+            margin: auto;
+        }
+
+        .publication {
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            padding: 24px;
+
+            border-radius: 16px;
+
+            transition: 0.3s;
+        }
+
+        .publication:hover {
+            transform: translateY(-4px);
+
+            border-color: var(--primary);
+        }
+
+        .publication h3 {
+            margin-bottom: 8px;
+        }
+
+        .publication p {
+            color: var(--muted);
+
+            font-size: 14px;
+        }
+
+        .publication .journal {
+            color: var(--secondary);
+
+            font-size: 13px;
+
+            margin-bottom: 8px;
+
+            font-weight: bold;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+
+            padding: 30px 0;
+
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+
+        #topBtn {
+            position: fixed;
+
+            right: 25px;
+            bottom: 25px;
+
+            width: 45px;
+            height: 45px;
+
+            border-radius: 50%;
+
+            border: 1px solid var(--border);
+
+            background: var(--primary);
+
+            color: white;
+
+            cursor: pointer;
+
+            display: none;
+
+            z-index: 999;
+
+            font-size: 20px;
+
+            transition: 0.3s;
+        }
+
+        #topBtn:hover {
+            transform: translateY(-4px);
+
+            box-shadow: var(--shadow);
+        }
+
+        @media (max-width: 900px) {
+
+            .hero {
+                grid-template-columns: 1fr;
+
+                text-align: center;
+            }
+
+            .hero-description {
+                margin: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .about-grid,
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .profile-card {
+                max-width: 420px;
+
+                margin: auto;
+            }
+
+            /* Mobile navigation */
+
+            nav {
+                justify-content: center;
+            }
+
+            .menu-btn {
+                display: block;
+
+                left: 0;
+            }
+
+            .nav-links {
+                position: absolute;
+
+                top: 72px;
+                left: 0;
+
+                width: 100%;
+
+                background: var(--bg-secondary);
+
+                display: none;
+
+                flex-direction: column;
+
+                padding: 25px;
+
+                gap: 20px;
+
+                border-bottom: 1px solid var(--border);
+
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 15px;
+            }
+
+            .theme-btn {
+                margin-top: 5px;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            section {
+                padding: 70px 0;
+            }
+
+            .about-grid,
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .profile-image {
+                width: 170px;
+                height: 170px;
+
+                font-size: 55px;
+            }
+
+            .achievement {
+                padding: 25px;
+            }
+
+            .details li {
+                flex-direction: column;
+
+                gap: 3px;
+            }
+
+            .details span:last-child {
+                text-align: left;
+            }
+
+            #topBtn {
+                right: 18px;
+                bottom: 18px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+
+        <div class="container">
+
+            <nav>
+
+                <!-- Mobile Menu Button -->
+
+                <button
+                    class="menu-btn"
+                    id="menuBtn"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false">
+                    ☰
+                </button>
+
+                <!-- Centered Navigation -->
+
+                <div class="nav-links" id="navLinks">
+
+                    <a href="#home">Home</a>
+
+                    <a href="#about">About</a>
+
+                    <a href="#skills">Skills</a>
+
+                    <a href="#education">Education</a>
+
+                    <a href="#projects">Projects</a>
+
+                    <a href="#publications">Publications</a>
+
+               
+
+                </div>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main>
+
+        <!-- =========================
+             HERO
+        ========================== -->
+
+        <section id="home">
+
+            <div class="container hero">
+
+                <div>
+
+                    <span class="badge">
+                        Available for Opportunities
+                    </span>
+
+                    <h1>
+                        Hi, I'm
+                        <span class="gradient-text">
+                            Sathana
+                        </span>
+                    </h1>
+
+                    <h2>
+                        AI/ML Enthusiast & Full Stack Developer
+                    </h2>
+
+                    <p class="hero-description">
+                        Information Technology graduate passionate about
+                        building intelligent applications, modern web
+                        experiences and practical AI-powered solutions.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="#projects"
+                            class="btn btn-primary">
+                            View My Work
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Profile -->
+
+                <div class="profile-card">
+
+                    <div class="profile-image">
+                        S
+                    </div>
+
+                    <h3>
+                        Sathana C
+                    </h3>
+
+                    <p>
+                        B.Tech Information Technology
+                    </p>
+
+                    <div class="socials">
+
+                        <a
+                            href="https://github.com/C-Sathana"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            GitHub
+                        </a>
+
+                        <a
+                            href="https://www.linkedin.com/in/c-sathana"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            LinkedIn
+                        </a>
+
+                        <a
+                            href="https://www.codechef.com/users/sathana_c"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            CodeChef
+                        </a>
+
+                        <a
+                            href="https://leetcode.com/"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            LeetCode
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+
+        <section id="about">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>
+                        About Me
+                    </span>
+
+                    <h2>
+                        Who I Am
+                    </h2>
+
+                    <p>
+                        A technology-focused developer interested in
+                        full-stack development, artificial intelligence
+                        and innovative software solutions.
+                    </p>
+
+                </div>
+
+
+                <div class="about-grid">
+
+                    <div class="info-card">
+
+                        <h3>
+                            Professional Profile
+                        </h3>
+
+                        <p>
+                            I am an Information Technology professional
+                            with experience in frontend development,
+                            AI/ML, databases and modern developer tools.
+                            I enjoy transforming ideas into functional
+                            and scalable applications.
+                        </p>
+
+                        <ul class="details">
+
+                            <li>
+                                <span>
+                                    Degree
+                                </span>
+
+                                <span>
+                                    B.Tech - IT
+                                </span>
+                            </li>
+
+                            <li>
+                                <span>
+                                    Graduation
+                                </span>
+
+                                <span>
+                                    April 2026
+                                </span>
+                            </li>
+
+                            <li>
+                                <span>
+                                    Primary Focus
+                                </span>
+
+                                <span>
+                                    AI & Full Stack
+                                </span>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Coding Profiles
+                        </h3>
+
+                        <p>
+                            Active problem-solving and competitive
+                            programming experience.
+                        </p>
+
+                        <ul class="details">
+
+                            <li>
+                                <span>
+                                    CodeChef
+                                </span>
+
+                                <span>
+                                    200+ Problems
+                                </span>
+                            </li>
+
+                            <li>
+                                <span>
+                                    LeetCode
+                                </span>
+
+                                <span>
+                                    70+ Problems
+                                </span>
+                            </li>
+
+                            <li>
+                                <span>
+                                    GitHub
+                                </span>
+
+                                <span>
+                                    C-Sathana
+                                </span>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SKILLS
+        ========================== -->
+
+        <section id="skills">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>
+                        Expertise
+                    </span>
+
+                    <h2>
+                        Technical Skills
+                    </h2>
+
+                </div>
+
+
+                <div class="skills-grid">
+
+                    <div class="skill-card">
+
+                        <h3>
+                            Programming
+                        </h3>
+
+                        <ul class="skill-list">
+                            <li>C</li>
+                            <li>Python</li>
+                            <li>JavaScript</li>
+                        </ul>
+
+                    </div>
+
+
+                    <div class="skill-card">
+
+                        <h3>
+                            Frontend
+                        </h3>
+
+                        <ul class="skill-list">
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>React.js</li>
+                            <li>Next.js</li>
+                            <li>i18next</li>
+                        </ul>
+
+                    </div>
+
+
+                    <div class="skill-card">
+
+                        <h3>
+                            AI / ML
+                        </h3>
+
+                        <ul class="skill-list">
+                            <li>TensorFlow</li>
+                            <li>OpenCV</li>
+                            <li>Pandas</li>
+                            <li>NumPy</li>
+                            <li>CNN</li>
+                        </ul>
+
+                    </div>
+
+
+                    <div class="skill-card">
+
+                        <h3>
+                            Databases
+                        </h3>
+
+                        <ul class="skill-list">
+                            <li>PostgreSQL</li>
+                            <li>MongoDB</li>
+                        </ul>
+
+                    </div>
+
+
+                    <div class="skill-card">
+
+                        <h3>
+                            Developer Tools
+                        </h3>
+
+                        <ul class="skill-list">
+                            <li>GitHub</li>
+                            <li>Jira</li>
+                            <li>Figma</li>
+                            <li>Tableau</li>
+                            <li>Microsoft Suite</li>
+                        </ul>
+
+                    </div>
+
+
+                    <div class="skill-card">
+
+                        <h3>
+                            Core Interests
+                        </h3>
+
+                        <ul class="skill-list">
+                            <li>Web Development</li>
+                            <li>AI Applications</li>
+                            <li>Computer Vision</li>
+                            <li>Full Stack</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             EDUCATION
+        ========================== -->
+
+        <section id="education">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>
+                        Journey
+                    </span>
+
+                    <h2>
+                        Education & Experience
+                    </h2>
+
+                </div>
+
+
+                <div class="timeline">
+
+                    <!-- Education -->
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-card">
+
+                            <h3>
+                                Bachelor of Technology -
+                                Information Technology
+                            </h3>
+
+                            <div class="date">
+                                Kamaraj College of Engineering & Technology
+                                | April 2026
+                            </div>
+
+                            <p>
+                                Pursued undergraduate studies in
+                                Information Technology with focus on
+                                programming, web development and
+                                emerging technologies.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Internship -->
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-card">
+
+                            <h3>
+                                Web Developer Intern
+                            </h3>
+
+                            <div class="date">
+                                Priga Solutions | Jun 2024 - Jul 2024
+                            </div>
+
+                            <ul>
+
+                                <li>
+                                    Developed multilingual forms using
+                                    React.js and i18next.
+                                </li>
+
+                                <li>
+                                    Implemented OTP verification and
+                                    frontend validation.
+                                </li>
+
+                                <li>
+                                    Integrated React.js frontend with
+                                    Node.js APIs.
+                                </li>
+
+                                <li>
+                                    Used Jira for Agile sprint
+                                    task management.
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- School -->
+
+                    <div class="timeline-item">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-card">
+
+                            <h3>
+                                Higher Secondary Certificate
+                            </h3>
+
+                            <div class="date">
+                                Government Girls Higher Secondary School
+                                | May 2022
+                            </div>
+
+                            <p>
+                                Biology Mathematics stream.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROJECTS
+        ========================== -->
+
+        <section id="projects">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>
+                        Portfolio
+                    </span>
+
+                    <h2>
+                        Featured Projects
+                    </h2>
+
+                    <p>
+                        Selected academic and technical projects
+                        demonstrating full-stack and AI/ML capabilities.
+                    </p>
+
+                </div>
+
+
+                <div class="projects-grid">
+
+                    <!-- Project 1 -->
+
+                    <article class="project-card">
+
+                        <span class="project-number">
+                            01 / AI + FULL STACK
+                        </span>
+
+                        <h3>
+                            Intelligent Recipe Discovery &
+                            Pantry Management Platform
+                        </h3>
+
+                        <p>
+                            Built a full-stack AI-powered platform that
+                            generates personalized recipes from pantry
+                            ingredients. Integrated Gemini AI, REST APIs,
+                            JWT authentication and PostgreSQL for secure
+                            recipe generation and pantry management.
+                        </p>
+
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>AI</span>
+                            <span>Gemini</span>
+                            <span>REST API</span>
+                            <span>JWT</span>
+                            <span>PostgreSQL</span>
+                        </div>
+
+                    </article>
+
+
+                    <!-- Project 2 -->
+
+                    <article class="project-card">
+
+                        <span class="project-number">
+                            02 / AI + HEALTHCARE
+                        </span>
+
+                        <h3>
+                            Personalized Clinical Guidance for
+                            Varicose Vein Management
+                        </h3>
+
+                        <p>
+                            Developed a React Native healthcare application
+                            for real-time varicose vein stage prediction.
+                            Created a TensorFlow pipeline with preprocessing,
+                            clustering and attention-based feature fusion
+                            using 2,760 medical images.
+                        </p>
+
+                        <div class="project-tech">
+                            <span>React Native</span>
+                            <span>TensorFlow</span>
+                            <span>OpenCV</span>
+                            <span>CNN</span>
+                            <span>AI/ML</span>
+                        </div>
+
+                    </article>
+
+
+                    <!-- Project 3 -->
+
+                    <article class="project-card">
+
+                        <span class="project-number">
+                            03 / DISASTER MANAGEMENT
+                        </span>
+
+                        <h3>
+                            Web-Based Flood and Rainfall Prediction
+                        </h3>
+
+                        <p>
+                            Engineered a full-stack disaster management
+                            platform using React and an AI backend powered
+                            by LSTM and XGBoost models for real-time
+                            disaster risk assessment.
+                        </p>
+
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>LSTM</span>
+                            <span>XGBoost</span>
+                            <span>AI</span>
+                            <span>Weather Data</span>
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ACHIEVEMENT
+        ========================== -->
+
+        <section>
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>
+                        Recognition
+                    </span>
+
+                    <h2>
+                        Achievement
+                    </h2>
+
+                </div>
+
+
+                <div class="achievement">
+
+                    <div class="achievement-icon">
+                        🏆
+                    </div>
+
+                    <h3>
+                        Dr. Kalam Young Achiever Award
+                    </h3>
+
+                    <p>
+                        October 2024
+                    </p>
+
+                    <p>
+                        Received the award for designing and building
+                        the GarLearn AR/VR prototype, an immersive
+                        educational platform for learning medicinal
+                        plants through interactive 3D visualization
+                        and virtual experiences.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PUBLICATIONS
+        ========================== -->
+
+        <section id="publications">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>
+                        Research
+                    </span>
+
+                    <h2>
+                        Publications
+                    </h2>
+
+                </div>
+
+
+                <div class="publication-list">
+
+                    <!-- Publication 1 -->
+
+                    <article class="publication">
+
+                        <div class="journal">
+                            JETIR | November 2025
+                        </div>
+
+                        <h3>
+                            Personalized Clinical Guidance for
+                            Varicose Vein Management
+                        </h3>
+
+                        <p>
+                            Research on an AI-powered healthcare system
+                            for automated varicose vein stage detection
+                            using deep learning and image processing
+                            on 2,760 medical images.
+                        </p>
+
+                    </article>
+
+
+                    <!-- Publication 2 -->
+
+                    <article class="publication">
+
+                        <div class="journal">
+                            IRJAEH | March 2025
+                        </div>
+
+                        <h3>
+                            Innovative Approaches to Secure Image
+                            Processing in Decentralized Environment
+                        </h3>
+
+                        <p>
+                            Research on a blockchain-based secure image
+                            encryption framework using Visual Cryptography,
+                            BLAKE2b hashing and HAAP-CNN for secure image
+                            reconstruction.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+                © 2026 Sathana.
+                Designed & Developed with HTML5,
+                CSS3 and JavaScript.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         SCROLL TO TOP
+    ========================== -->
+
+    <button
+        id="topBtn"
+        aria-label="Scroll to top">
+        ↑
+    </button>
+
+</body>
+</html>
